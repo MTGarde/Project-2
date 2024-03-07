@@ -171,6 +171,70 @@ public class MainService {
 		}
 	}
 	
+	
+	public static void createStudent(String name, String surname) throws Exception {
+
+
+		if(name == null || surname == null) {
+			throw new Exception("invalid arguments");
+		}
+		
+		for(Student tempSt : allStudents) {
+			if(tempSt.getName().equals(name) && tempSt.getSurname().equals(surname)) {
+				throw new Exception("already registered");
+			}
+		}
+		
+		Student st = new Student(name, surname);
+		allStudents.add(st);
+	}
+	
+	//returieve by surname- labak vajag sarakstu jo var but vairaki vienadi uzvardi
+	//TODO retrieve by personas kods
+	public static Student retrieveStrudentBysurname(String surname) throws Exception {
+		if(surname == null) throw new Exception("Bad");
+		
+		for(Student tempSt : allStudents) {
+			if(tempSt.getSurname().equals(surname)) {
+				return tempSt;
+			}
+		}
+		throw new Exception("student doesn't exist");
+	}
+
+	public static void updateStudentNameSurname(String name, String surname, String newSurname) throws Exception {
+		if(name == null || surname == null || newSurname == null) {
+			throw new Exception("invalid arguments");
+		}
+		
+		for(Student tempSt : allStudents) {
+			if(tempSt.getName().equals(name) && tempSt.getSurname().equals(surname) && (!surname.equals(newSurname))) {
+				tempSt.setSurname(newSurname);
+				return;
+			}
+		}
+		
+		throw new Exception("Student doesn't exist");
+	}
+
+	
+	//TODO ieviest personas kodu pec kura dzest
+	public static void deleteByNameAndSurname(String name, String surname) throws Exception {
+		if(name == null || surname == null) {
+			throw new Exception("invalid arguments");
+		}
+		
+		
+		for(Student tempSt : allStudents) {
+			if(tempSt.getName().equals(name) && tempSt.getSurname().equals(surname)) {
+				allStudents.remove(tempSt);
+				return;
+			}
+		}
+		
+		throw new Exception("impossible");
+	}
+	
 }
 
 
