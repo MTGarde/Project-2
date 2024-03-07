@@ -235,6 +235,34 @@ public class MainService {
 		throw new Exception("impossible");
 	}
 	
+	//TODOpielikt argumentu augosa dilstosa seciba
+	public static ArrayList<Student> sortStudentsByAVGGrade() {
+		
+		ArrayList<Student> result = new ArrayList<Student>();
+		
+		for(Student tempSt : allStudents) {
+			try {
+				averageGrade(tempSt);
+				result.add(tempSt);
+			}catch(Exception e) {
+				System.out.println(e);
+			}
+		}
+		
+		for(int i = 0; i < result.size(); i++) {
+			for(int j = 0; j < result.size(); j++) {
+				try {
+				if(averageGrade(result.get(i)) < averageGrade(result.get(j))) {
+					Student temp = result.get(i);
+					result.set(i, result.get(j));
+					result.set(j, temp);
+				}
+				}catch(Exception e) {System.out.println(e);}
+			}
+		}
+		
+		return result;
+	}
 }
 
 
