@@ -5,12 +5,15 @@ import java.util.ArrayList;
 import model.Course;
 import model.Degree;
 import model.Grade;
+import model.Person;
 import model.Professor;
 import model.Student;
 
 public class MainService {
-	private static ArrayList<Professor> allProfessors = new ArrayList<Professor>();
-	private static ArrayList<Student> allStudents = new ArrayList<Student>();
+//	private static ArrayList<Professor> allProfessors = new ArrayList<Professor>();
+//	private static ArrayList<Student> allStudents = new ArrayList<Student>();
+	
+	private static ArrayList<Person> allPeople = new ArrayList<Person>();
 	private static ArrayList<Course> allCourses = new ArrayList<Course>();
 	private static ArrayList<Grade> allGrades = new ArrayList<Grade>();
 
