@@ -30,13 +30,13 @@ public class MainService {
 		Student st3 = new Student("Krishtians", "Koks");
 		Student st4 = new Student("Kate", "Sprigele");
 		Student st5 = new Student("Anna", "Kiegele");
-		allStudents.add(st1);
-		allStudents.add(st2);
-		allStudents.add(st3);
-		allStudents.add(st4);
-		allStudents.add(st5);
+		allPeople.add(st1);
+		allPeople.add(st2);
+		allPeople.add(st3);
+		allPeople.add(st4);
+		allPeople.add(st5);
 		
-		for(Student student : allStudents) {
+		for(Student student : allPeople) {
 			System.out.println(student);
 		}
 		
@@ -75,14 +75,14 @@ public class MainService {
 			
 			
 			System.out.println("Student list: ");
-			for(Student student: allStudents) {
+			for(Student student: allPeople) {
 				System.out.println(student);
 			}
 			
-			sortStudentsByAvg(allStudents);
+			sortStudentsByAvg(allPeople);
 			
 			System.out.println("Student list sorted by average grade: ");
-			for(Student student: allStudents) {
+			for(Student student: allPeople) {
 				System.out.println(student);
 			}
 			
@@ -182,7 +182,7 @@ public class MainService {
 			throw new Exception("invalid arguments");
 		}
 		
-		for(Student tempSt : allStudents) {
+		for(Student tempSt : allPeople) {
 			if(tempSt.getName().equals(name) && tempSt.getSurname().equals(surname)) {
 				throw new Exception("already registered");
 			}
@@ -197,7 +197,7 @@ public class MainService {
 	public static Student retrieveStrudentBysurname(String surname) throws Exception {
 		if(surname == null) throw new Exception("Bad");
 		
-		for(Student tempSt : allStudents) {
+		for(Student tempSt : allPeople) {
 			if(tempSt.getSurname().equals(surname)) {
 				return tempSt;
 			}
@@ -210,7 +210,7 @@ public class MainService {
 			throw new Exception("invalid arguments");
 		}
 		
-		for(Student tempSt : allStudents) {
+		for(Student tempSt : allPeople) {
 			if(tempSt.getName().equals(name) && tempSt.getSurname().equals(surname) && (!surname.equals(newSurname))) {
 				tempSt.setSurname(newSurname);
 				return;
@@ -228,9 +228,9 @@ public class MainService {
 		}
 		
 		
-		for(Student tempSt : allStudents) {
+		for(Student tempSt : allPeople) {
 			if(tempSt.getName().equals(name) && tempSt.getSurname().equals(surname)) {
-				allStudents.remove(tempSt);
+				allPeople.remove(tempSt);
 				return;
 			}
 		}
